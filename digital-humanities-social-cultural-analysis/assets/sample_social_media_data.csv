@@ -1,0 +1,26 @@
+user,timestamp,text,mentions,likes,shares,comments
+user1,2023-10-01 10:00:00,I love digital humanities! It's changing the way we study culture.,user2,45,12,8
+user2,2023-10-01 10:30:00,Looking at social networks in digital humanities research.,user1,32,8,5
+user3,2023-10-01 11:00:00,Analyzing sentiment in social media data for cultural analysis.,user4,56,15,12
+user4,2023-10-01 11:30:00,Trend detection in digital humanities is fascinating.,user3,28,6,4
+user5,2023-10-01 12:00:00,Audience analysis helps understand cultural impacts.,user1,41,10,7
+user1,2023-10-02 09:00:00,Content categorization in digital humanities projects.,user2,35,9,6
+user2,2023-10-02 09:30:00,Network extraction from social media data.,user3,42,11,9
+user3,2023-10-02 10:00:00,Sentiment analysis reveals cultural trends.,user5,53,14,11
+user4,2023-10-02 10:30:00,Digital humanities is transforming cultural heritage.,user2,31,7,4
+user5,2023-10-02 11:00:00,Social media analysis provides insights into cultural changes.,user1,48,13,8
+user1,2023-10-03 08:30:00,Cultural pattern recognition through digital methods.,user4,39,10,7
+user2,2023-10-03 09:00:00,Heritage data management in digital humanities.,user5,34,8,5
+user3,2023-10-03 09:30:00,Digital storytelling for cultural education.,user1,46,12,9
+user4,2023-10-03 10:00:00,Community engagement in digital humanities projects.,user2,37,9,6
+user5,2023-10-03 10:30:00,Educational content management in digital humanities.,user3,43,11,8
+user1,2023-10-04 09:00:00,Metadata creation for cultural artifacts.,user3,36,8,5
+user2,2023-10-04 09:30:00,Digital preservation of cultural heritage.,user4,49,14,10
+user3,2023-10-04 10:00:00,Cultural artifact analysis using digital tools.,user5,33,7,4
+user4,2023-10-04 10:30:00,Heritage documentation through digital methods.,user1,40,10,7
+user5,2023-10-04 11:00:00,Heritage data integration across collections.,user2,47,13,9
+user1,2023-10-05 08:30:00,Network analysis of cultural connections.,user5,38,9,6
+user2,2023-10-05 09:00:00,Trend detection in cultural evolution.,user1,44,12,8
+user3,2023-10-05 09:30:00,Audience analysis for cultural projects.,user2,35,8,5
+user4,2023-10-05 10:00:00,Content categorization of cultural materials.,user3,51,15,12
+user5,2023-10-05 10:30:00,Sentiment analysis of cultural discourse.,user4,32,7,4

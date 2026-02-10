@@ -1,0 +1,15 @@
+Alice: Hi Bob, how are you doing today?
+Bob: I'm doing well, thanks! How about you?
+Alice: I'm great, thanks for asking. Did you finish the linguistics assignment?
+Bob: Yes, I just submitted it this morning. It was quite challenging.
+Alice: Oh, really? What was the most difficult part?
+Bob: The section on semantic networks was pretty tough. I had a hard time understanding how to represent the relationships between concepts.
+Alice: I know what you mean. I struggled with that too. Did you use NetworkX for the visualization?
+Bob: Yes, I did. Once I got the hang of it, it was actually pretty cool to see the networks.
+Alice: That's good. Do you want to study together for the upcoming exam?
+Bob: Sure, that sounds like a great idea. When were you thinking?
+Alice: Maybe tomorrow afternoon around 2 PM?
+Bob: That works for me. Let's meet in the library.
+Alice: Perfect. I'll see you there!
+Bob: See you later, Alice!
+Alice: Bye Bob!

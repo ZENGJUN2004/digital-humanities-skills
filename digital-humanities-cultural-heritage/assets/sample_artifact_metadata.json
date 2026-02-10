@@ -1,0 +1,118 @@
+{
+  "artifacts": [
+    {
+      "id": "art001",
+      "title": "Ancient Manuscript",
+      "creator": "Unknown Monk",
+      "date": "1200-01-01",
+      "type": "Manuscript",
+      "format": "Handwritten parchment",
+      "identifier": "MS-001",
+      "source": "Medieval Library",
+      "language": "Latin",
+      "description": "A medieval manuscript containing religious texts",
+      "historical_significance": "Important for understanding medieval religious practices",
+      "cultural_significance": "Represents the cultural heritage of medieval Europe",
+      "artistic_value": "Contains beautiful illuminations",
+      "rarity": "Rare example of 13th-century manuscript",
+      "condition": "Good",
+      "location": "Medieval Library, Special Collections",
+      "access_restrictions": "Limited access due to fragility",
+      "digital_surrogates": [
+        "https://example.com/ms-001/scan1.jpg",
+        "https://example.com/ms-001/scan2.jpg"
+      ]
+    },
+    {
+      "id": "art002",
+      "title": "Ceramic Vase",
+      "creator": "Ancient Potter",
+      "date": "500 BCE",
+      "type": "Ceramic",
+      "format": "Hand-thrown pottery",
+      "identifier": "CER-002",
+      "source": "Archaeological Excavation",
+      "language": "N/A",
+      "description": "An ancient ceramic vase with geometric patterns",
+      "historical_significance": "Provides insight into ancient pottery techniques",
+      "cultural_significance": "Represents the artistic traditions of the period",
+      "artistic_value": "Exhibits skilled craftsmanship",
+      "rarity": "Common type of artifact from this period",
+      "condition": "Fair",
+      "location": "Archaeological Museum, Main Gallery",
+      "access_restrictions": "Public access",
+      "digital_surrogates": [
+        "https://example.com/cer-002/photo1.jpg",
+        "https://example.com/cer-002/photo2.jpg"
+      ]
+    },
+    {
+      "id": "art003",
+      "title": "Digital Artwork",
+      "creator": "Contemporary Artist",
+      "date": "2023-01-01",
+      "type": "Digital Art",
+      "format": "JPEG image",
+      "identifier": "DIG-003",
+      "source": "Artist's Portfolio",
+      "language": "N/A",
+      "description": "A digital artwork exploring cultural identity",
+      "historical_significance": "Represents contemporary digital art practices",
+      "cultural_significance": "Explores themes of cultural identity in the digital age",
+      "artistic_value": "Innovative use of digital techniques",
+      "rarity": "Unique digital artwork",
+      "condition": "Excellent",
+      "location": "Digital Art Gallery, Online Exhibition",
+      "access_restrictions": "Public access",
+      "digital_surrogates": [
+        "https://example.com/dig-003/full_res.jpg",
+        "https://example.com/dig-003/preview.jpg"
+      ]
+    },
+    {
+      "id": "art004",
+      "title": "Historic Photograph",
+      "creator": "Unknown Photographer",
+      "date": "1900-05-15",
+      "type": "Photograph",
+      "format": "Silver gelatin print",
+      "identifier": "PH-004",
+      "source": "Historical Society Archive",
+      "language": "N/A",
+      "description": "A photograph of a 19th-century city street",
+      "historical_significance": "Documents urban life in the early 20th century",
+      "cultural_significance": "Provides insight into daily life of the period",
+      "artistic_value": "Demonstrates early photographic techniques",
+      "rarity": "Common type of photograph from this period",
+      "condition": "Fair",
+      "location": "Historical Society, Photography Collection",
+      "access_restrictions": "Public access",
+      "digital_surrogates": [
+        "https://example.com/ph-004/digital_scan.jpg"
+      ]
+    },
+    {
+      "id": "art005",
+      "title": "Traditional Textile",
+      "creator": "Unknown Artisan",
+      "date": "1850-01-01",
+      "type": "Textile",
+      "format": "Hand-woven fabric",
+      "identifier": "TEX-005",
+      "source": "Ethnographic Museum",
+      "language": "N/A",
+      "description": "A traditional textile with geometric patterns",
+      "historical_significance": "Represents traditional weaving techniques",
+      "cultural_significance": "Important cultural artifact for the community",
+      "artistic_value": "Exhibits skilled craftsmanship",
+      "rarity": "Rare example of traditional textile",
+      "condition": "Good",
+      "location": "Ethnographic Museum, Textile Gallery",
+      "access_restrictions": "Limited access due to fragility",
+      "digital_surrogates": [
+        "https://example.com/tex-005/photo1.jpg",
+        "https://example.com/tex-005/photo2.jpg"
+      ]
+    }
+  ]
+}

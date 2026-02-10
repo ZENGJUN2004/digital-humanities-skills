@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字人文技能</title>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.875rem;
+        }
+        
+        select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: var(--background);
+        }
+        
+        input[type="file"] {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: var(--background);
+            cursor: pointer;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: var(--background);
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .file-list {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            background: var(--background);
+        }
+        
+        .file-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+        }
+        
+        .file-item:hover {
+            background: rgba(59, 130, 246, 0.05);
+        }
+        
+        .file-item.selected {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid var(--primary);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .results {
+            margin-top: 1.5rem;
+        }
+        
+        .result-card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .result-header {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .result-content {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .result-message {
+            color: var(--success);
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">数字人文技能</h1>
+            <p class="subtitle">探索人文研究和文化分析的数字方法</p>
+        </header>
+        
+        <div class="card">
+            <h2>文件选择</h2>
+            <div class="form-group">
+                <label for="fileInput">选择文件或文件夹 <span style="font-weight: normal; font-size: 0.875rem; color: var(--text-secondary)">(TXT，CSV或MD)</span></label>
+                <input type="file" id="fileInput" multiple webkitdirectory directory accept=".txt,.md,.csv">
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>技能选择</h2>
+            <div class="form-group">
+                <label for="mainCategory">主类别</label>
+                <select id="mainCategory">
+                    <option value="">请选择主类别</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subCategory">子类别</label>
+                <select id="subCategory" disabled>
+                    <option value="">请选择子类别</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="specificSkill">具体技能</label>
+                <select id="specificSkill" disabled>
+                    <option value="">请选择具体技能</option>
+                </select>
+            </div>
+            
+            <button class="btn" id="executeBtn" disabled>
+                <span>执行分析</span>
+            </button>
+        </div>
+        
+        <div class="card">
+            <h2>结果另存为</h2>
+            <div class="form-group">
+                <label for="savePath">保存位置</label>
+                <input type="text" id="savePath" placeholder="请输入保存路径，默认为当前目录">
+            </div>
+            <div class="results" id="results">
+                <p>执行分析后，结果将显示在这里</p>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>© 2026 数字人文技能 | <a href="https://github.com/ZENGJUN2004/digital-humanities-skills" target="_blank">GitHub 仓库</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        // Sample files in assets folder
+        const mockFiles = [
+            "sample_text.txt",
+            "historical_data.csv",
+            "cultural_heritage.md"
+        ];
+        
+        // Three-level skill structure
+        const skillsStructure = {
+            text_analysis: {
+                name: "文本分析与解读",
+                subcategories: {
+                    text_mining: {
+                        name: "文本挖掘与分析",
+                        skills: {
+                            keyword_extraction: "关键词提取",
+                            sentiment_analysis: "情感分析",
+                            text_classification: "文本分类"
+                        }
+                    },
+                    text_visualization: {
+                        name: "文本可视化",
+                        skills: {
+                            word_cloud: "词云生成",
+                            topic_modeling: "主题建模",
+                            text_network: "文本网络分析"
+                        }
+                    }
+                }
+            },
+            historical_research: {
+                name: "历史研究与考证",
+                subcategories: {
+                    historical_data: {
+                        name: "历史数据数字化与组织",
+                        skills: {
+                            digitization: "数字化处理",
+                            metadata_creation: "元数据创建",
+                            text_correction: "文本校正"
+                        }
+                    },
+                    historical_modeling: {
+                        name: "历史数据建模",
+                        skills: {
+                            timeline_construction: "时间线构建",
+                            relationship_modeling: "关系建模",
+                            spatial_analysis: "空间分析"
+                        }
+                    }
+                }
+            },
+            art_cultural_research: {
+                name: "艺术与文化研究",
+                subcategories: {
+                    art_analysis: {
+                        name: "数字艺术分析",
+                        skills: {
+                            style_analysis: "风格分析",
+                            composition_analysis: "构图分析",
+                            technique_identification: "技法识别"
+                        }
+                    },
+                    cultural_patterns: {
+                        name: "文化模式识别",
+                        skills: {
+                            pattern_extraction: "模式提取",
+                            trend_analysis: "趋势分析",
+                            cross_cultural_comparison: "跨文化比较"
+                        }
+                    }
+                }
+            },
+            language_research: {
+                name: "语言与语言学研究",
+                subcategories: {
+                    computational_linguistics: {
+                        name: "计算语言学分析",
+                        skills: {
+                            syntax_analysis: "句法分析",
+                            semantic_analysis: "语义分析",
+                            pragmatic_analysis: "语用分析"
+                        }
+                    },
+                    corpus_linguistics: {
+                        name: "语料库构建与分析",
+                        skills: {
+                            corpus_creation: "语料库创建",
+                            corpus_annotation: "语料库标注",
+                            corpus_query: "语料库查询"
+                        }
+                    }
+                }
+            },
+            philosophy_research: {
+                name: "哲学与思想研究",
+                subcategories: {
+                    concept_analysis: {
+                        name: "概念网络分析",
+                        skills: {
+                            concept_extraction: "概念提取",
+                            network_construction: "网络构建",
+                            evolution_analysis: "演变分析"
+                        }
+                    },
+                    text_interpretation: {
+                        name: "文本语义分析",
+                        skills: {
+                            semantic_parsing: "语义解析",
+                            argument_analysis: "论证分析",
+                            discourse_analysis: "话语分析"
+                        }
+                    }
+                }
+            },
+            social_cultural_analysis: {
+                name: "社会与文化分析",
+                subcategories: {
+                    social_network: {
+                        name: "社会网络分析",
+                        skills: {
+                            network_extraction: "网络提取",
+                            centrality_analysis: "中心性分析",
+                            community_detection: "社区检测"
+                        }
+                    },
+                    cultural_trends: {
+                        name: "文化趋势检测",
+                        skills: {
+                            trend_identification: "趋势识别",
+                            influence_analysis: "影响分析",
+                            prediction_modeling: "预测建模"
+                        }
+                    }
+                }
+            },
+            cultural_heritage: {
+                name: "文化遗产保护与传承",
+                subcategories: {
+                    digital_archiving: {
+                        name: "数字遗产归档",
+                        skills: {
+                            digital_recording: "数字记录",
+                            metadata_standardization: "元数据标准化",
+                            long_term_preservation: "长期保存"
+                        }
+                    },
+                    virtual_reconstruction: {
+                        name: "虚拟重建",
+                        skills: {
+                            modeling_3d: "3D建模",
+                            virtual_restoration: "虚拟修复",
+                            interactive_exhibition: "互动展示"
+                        }
+                    }
+                }
+            },
+            public_education: {
+                name: "公众人文与教育",
+                subcategories: {
+                    digital_storytelling: {
+                        name: "数字 storytelling",
+                        skills: {
+                            narrative_design: "叙事设计",
+                            multimedia_production: "多媒体制作",
+                            interactive_storytelling: "互动叙事"
+                        }
+                    },
+                    educational_content: {
+                        name: "教育内容管理",
+                        skills: {
+                            curriculum_design: "课程设计",
+                            resource_organization: "资源组织",
+                            assessment_design: "评估设计"
+                        }
+                    }
+                }
+            },
+            batch_process: {
+                name: "批量处理",
+                subcategories: {
+                    batch_operations: {
+                        name: "批量操作",
+                        skills: {
+                            folder_processing: "文件夹处理",
+                            format_conversion: "格式转换",
+                            result_aggregation: "结果汇总"
+                        }
+                    }
+                }
+            }
+        };
+        
+        // Selected values
+        let selectedFiles = [];
+        let selectedMainCategory = null;
+        let selectedSubCategory = null;
+        let selectedSkill = null;
+        let savePath = '';
+        
+        // DOM elements
+        const fileInput = document.getElementById('fileInput');
+        const savePathInput = document.getElementById('savePath');
+        const executeBtn = document.getElementById('executeBtn');
+        const results = document.getElementById('results');
+        const mainCategory = document.getElementById('mainCategory');
+        const subCategory = document.getElementById('subCategory');
+        const specificSkill = document.getElementById('specificSkill');
+        
+        // Initialize main categories
+        function initMainCategories() {
+            mainCategory.innerHTML = '<option value="">请选择主类别</option>';
+            
+            for (const [key, value] of Object.entries(skillsStructure)) {
+                const option = document.createElement('option');
+                option.value = key;
+                option.textContent = value.name;
+                mainCategory.appendChild(option);
+            }
+        }
+        
+        // Update subcategories
+        function updateSubCategories() {
+            const selectedMain = mainCategory.value;
+            
+            subCategory.innerHTML = '';
+            specificSkill.innerHTML = '';
+            
+            if (!selectedMain) {
+                subCategory.innerHTML = '<option value="">请先选择主类别</option>';
+                subCategory.disabled = true;
+                specificSkill.innerHTML = '<option value="">请先选择子类别</option>';
+                specificSkill.disabled = true;
+            } else {
+                subCategory.disabled = false;
+                const subcats = skillsStructure[selectedMain].subcategories;
+                
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = '请选择子类别';
+                subCategory.appendChild(defaultOption);
+                
+                for (const [key, value] of Object.entries(subcats)) {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = value.name;
+                    subCategory.appendChild(option);
+                }
+                
+                specificSkill.innerHTML = '<option value="">请先选择子类别</option>';
+                specificSkill.disabled = true;
+            }
+            
+            updateExecuteBtn();
+        }
+        
+        // Update specific skills
+        function updateSpecificSkills() {
+            const selectedMain = mainCategory.value;
+            const selectedSub = subCategory.value;
+            
+            specificSkill.innerHTML = '';
+            
+            if (!selectedMain || !selectedSub) {
+                specificSkill.innerHTML = '<option value="">请先选择子类别</option>';
+                specificSkill.disabled = true;
+            } else {
+                specificSkill.disabled = false;
+                const skills = skillsStructure[selectedMain].subcategories[selectedSub].skills;
+                
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = '请选择具体技能';
+                specificSkill.appendChild(defaultOption);
+                
+                for (const [key, value] of Object.entries(skills)) {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = value;
+                    specificSkill.appendChild(option);
+                }
+            }
+            
+            updateExecuteBtn();
+        }
+        
+        // Update execute button state
+        function updateExecuteBtn() {
+            if (selectedFiles.length > 0 && mainCategory.value && subCategory.value && specificSkill.value) {
+                executeBtn.disabled = false;
+            } else {
+                executeBtn.disabled = true;
+            }
+        }
+        
+        // Event listeners
+        mainCategory.addEventListener('change', function() {
+            selectedMainCategory = this.value;
+            updateSubCategories();
+        });
+        
+        subCategory.addEventListener('change', function() {
+            selectedSubCategory = this.value;
+            updateSpecificSkills();
+        });
+        
+        specificSkill.addEventListener('change', function() {
+            selectedSkill = this.value;
+            updateExecuteBtn();
+        });
+        
+        fileInput.addEventListener('change', function() {
+            selectedFiles = Array.from(this.files);
+            updateExecuteBtn();
+        });
+        
+        savePathInput.addEventListener('input', function() {
+            savePath = this.value;
+        });
+        
+        executeBtn.addEventListener('click', function() {
+            if (selectedFiles.length === 0 || !selectedMainCategory || !selectedSubCategory || !selectedSkill) {
+                return;
+            }
+            
+            // Show loading state
+            this.innerHTML = '<span>处理中...</span>';
+            this.disabled = true;
+            
+            // Simulate execution
+            setTimeout(() => {
+                // Get skill names
+                const mainName = skillsStructure[selectedMainCategory].name;
+                const subName = skillsStructure[selectedMainCategory].subcategories[selectedSubCategory].name;
+                const skillName = skillsStructure[selectedMainCategory].subcategories[selectedSubCategory].skills[selectedSkill];
+                
+                // Create result
+                const result = {
+                    files: selectedFiles.map(file => file.name),
+                    function: mainName + ' - ' + subName + ' - ' + skillName,
+                    output: {
+                        message: '执行成功',
+                        skill_specific: '执行了' + skillName + '功能',
+                        file_count: selectedFiles.length
+                    },
+                    save_path: savePath || '当前目录'
+                };
+                
+                // Display result
+                results.innerHTML = '';
+                
+                const resultCard = document.createElement('div');
+                resultCard.className = 'result-card';
+                
+                const resultHeader = document.createElement('div');
+                resultHeader.className = 'result-header';
+                resultHeader.textContent = '执行结果: ' + result.function;
+                
+                const resultContent = document.createElement('div');
+                resultContent.className = 'result-content';
+                resultContent.textContent = JSON.stringify(result, null, 2);
+                
+                const resultMessage = document.createElement('div');
+                resultMessage.className = 'result-message';
+                resultMessage.textContent = '结果已保存到 ' + result.save_path;
+                
+                resultCard.appendChild(resultHeader);
+                resultCard.appendChild(resultContent);
+                resultCard.appendChild(resultMessage);
+                results.appendChild(resultCard);
+                
+                // Restore button state
+                executeBtn.innerHTML = '<span>执行分析</span>';
+                executeBtn.disabled = false;
+            }, 1500);
+        });
+        
+        // Initialize on load
+        window.addEventListener('load', function() {
+            initMainCategories();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "philosophy-thought-research",
+  "display_name": "哲学与思想研究数字人文技能",
+  "version": "1.0.0",
+  "description": "提供全面的哲学与思想研究工具，支持从文本分析到概念可视化的全方位研究与表达",
+  "author": "Digital Humanities Team",
+  "created_at": "2026-02-10T13:48:09.445475",
+  "dependencies": [
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "nltk",
+    "spacy",
+    "networkx",
+    "matplotlib",
+    "plotly",
+    "dash",
+    "textblob",
+    "gensim",
+    "pyvis"
+  ],
+  "categories": [
+    "digital_humanities",
+    "philosophy",
+    "thought_research",
+    "text_analysis",
+    "visualization"
+  ]
+}

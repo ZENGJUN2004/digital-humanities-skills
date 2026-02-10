@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试页面</title>
+</head>
+<body>
+    <h1>测试页面</h1>
+    <p>这是一个测试页面</p>
+    <script>
+        console.log('测试页面加载成功');
+        
+        // 简单的技能结构
+        const skillsStructure = {
+            text_analysis: {
+                name: "文本分析与解读",
+                subcategories: {
+                    text_mining: {
+                        name: "文本挖掘与分析",
+                        skills: {
+                            keyword_extraction: "关键词提取"
+                        }
+                    }
+                }
+            }
+        };
+        
+        console.log('技能结构定义成功:', skillsStructure);
+    </script>
+</body>
+</html>
